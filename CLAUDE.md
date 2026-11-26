@@ -1,31 +1,22 @@
-# Claude Code Adapter — AC4E EIEF / Luiss
+# CLAUDE.md
 
-Claude Code is the **primary** demo lane for this faculty workshop.
+@AGENTS.md
 
-## Use With
+The rules above (imported from [`AGENTS.md`](AGENTS.md)) apply in full. This file
+only adds Claude Code specifics.
 
-Read and follow [`AGENTS.md`](AGENTS.md). This file only adds Claude-specific path notes.
+## Where Claude's pieces live
 
-## Local Paths
+| Piece | Path |
+| --- | --- |
+| Skills | `.claude/skills/*/SKILL.md` (portable copies: `agent-harness/claude/skills/`) |
+| Sub-agents | `.claude/agents/*.md` — `data-reviewer`, `literature-reviewer`, `pr-reviewer`, `loop-verifier`, `sdd-orchestrator` |
+| Hooks | `.claude/hooks/` + `.claude/settings.example.json` (optional) |
+| MCP | `agent-harness/claude/mcp/mcp.json.example` → `.mcp.json` (optional, not used in the room) |
 
-| Piece | Where in this repo | Claude Code expectation |
-| --- | --- | --- |
-| Project rules | `AGENTS.md` + this file | Keep both at repo root |
-| Skills | `.claude/skills/*/SKILL.md` (portable copies in `agent-harness/claude/skills/`) | Invoke by name or let Claude select |
-| Subagents | `.claude/agents/*.md` (portable in `agent-harness/claude/agents/`) | Delegate reviewer roles explicitly |
-| MCP | `agent-harness/claude/mcp/mcp.json.example` → project `.mcp.json` | Optional (not in the room) |
-| Hooks | `.claude/hooks/` + `settings.example.json` | Optional |
+## Claude-specific defaults
 
-## Workshop defaults
-
-- Prefer **read-only** prompts until the issue acceptance criteria are clear.
-- For the checkpoint PR, keep the branch scoped to one issue.
-- Never mark replication green without a command run or equivalent evidence.
-- Confidential data: refuse. Point the human to `docs/privacy_boundary.md`.
-
-## CLI smoke check (Slot 1)
-
-```bash
-claude --version
-# or the install's equivalent; record the exact command in notes/cli_lane.md
-```
+- Start read-only (plan mode) until the issue's acceptance criteria are clear.
+- Delegate reviews to sub-agents explicitly; they are read-only.
+- Confidential data: refuse and point to `docs/privacy_boundary.md`.
+- CLI smoke check: `claude --version`; record the command in `notes/cli_lane.md`.
