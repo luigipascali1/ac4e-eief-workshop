@@ -49,3 +49,5 @@ python3 -m pytest examples/card-krueger-toy/tests examples/mini-economics/tests
 Friday cards are in `examples/card-krueger-swarm/`. Goal statements are in `examples/card-krueger-goals/`.
 
 This copy does not include instructor timing notes.
+
+Ciao
